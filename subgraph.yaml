@@ -17,6 +17,7 @@ dataSources:
         - Collector
         - DigitalArt
         - ArtTransfer
+        - Receiver
       abis:
         - name: cryptopunks
           file: ./abis/Cryptopunks.json
@@ -25,4 +26,6 @@ dataSources:
           handler: handleAssign
         - event: PunkTransfer(indexed address,indexed address,uint256)
           handler: handlePunkTransfer
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
       file: ./src/cryptopunks.ts

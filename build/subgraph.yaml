@@ -17,12 +17,15 @@ dataSources:
         - Collector
         - DigitalArt
         - ArtTransfer
+        - Receiver
       abis:
         - name: cryptopunks
-          file: cryptopunks/abis/Cryptopunks.json
+          file: cryptopunks\abis\Cryptopunks.json
       eventHandlers:
         - event: Assign(indexed address,uint256)
           handler: handleAssign
         - event: PunkTransfer(indexed address,indexed address,uint256)
           handler: handlePunkTransfer
-      file: cryptopunks/cryptopunks.wasm
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: cryptopunks\cryptopunks.wasm
